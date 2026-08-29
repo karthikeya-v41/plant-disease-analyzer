@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PlantCare AI — Log In</title>
+<style>
+  :root {
+    --bg-dark: #0a1712;
+    --bg-panel: #0f2018;
+    --accent-green: #4ade80;
+    --accent-teal: #2dd4bf;
+    --text-light: #f0fff5;
+    --text-muted: #a8c9b8;
+    --border-soft: rgba(74, 222, 128, 0.3);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: radial-gradient(circle at top, #0f221a 0%, #060c09 70%);
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    color: var(--text-light);
+    padding: 20px;
+  }
+
+  .login-card {
+    width: 100%;
+    max-width: 440px;
+    background: var(--bg-panel);
+    border: 1px solid var(--border-soft);
+    border-radius: 22px;
+    padding: 36px 28px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+  }
+
+  .logo-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 10px;
+  }
+
+  .leaf-icon {
+    width: 46px;
+    height: 46px;
+    background: linear-gradient(135deg, var(--accent-green), var(--accent-teal));
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+  }
+
+  .brand {
+    font-size: 30px;
+    font-weight: 800;
+    background: linear-gradient(90deg, var(--accent-green), var(--accent-teal));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .welcome {
+    text-align: center;
+    font-size: 19px;
+    font-weight: 600;
+    color: var(--text-light);
+    margin-bottom: 4px;
+  }
+
+  .subtitle {
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 15px;
+    margin-bottom: 30px;
+    line-height: 1.5;
+  }
+
+  .method-toggle {
+    display: flex;
+    background: #0a1712;
+    border: 1px solid var(--border-soft);
+    border-radius: 14px;
+    padding: 5px;
+    margin-bottom: 26px;
+  }
+
+  .method-toggle button {
+    flex: 1;
+    padding: 14px 10px;
+    border: none;
+    background: transparent;
+    color: var(--text-muted);
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 10px;
+    cursor: pointer;
+  }
+
+  .method-toggle button.active {
+    background: linear-gradient(90deg, var(--accent-green), var(--accent-teal));
+    color: #06150d;
+  }
+
+  label {
+    display: block;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--text-light);
+    margin-bottom: 10px;
+    margin-top: 20px;
+  }
+
+  .hint {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-top: 6px;
+  }
+
+  input {
+    width: 100%;
+    padding: 16px 16px;
+    background: #0a1712;
+    border: 2px solid var(--border-soft);
+    border-radius: 12px;
+    color: var(--text-light);
+    font-size: 18px;
+    outline: none;
+  }
+
+  input:focus {
+    border-color: var(--accent-green);
+  }
+
+  input::placeholder { color: #5a7a68; font-size: 16px; }
+
+  .login-btn {
+    width: 100%;
+    margin-top: 30px;
+    padding: 18px;
+    border: none;
+    border-radius: 14px;
+    background: linear-gradient(90deg, var(--accent-green), var(--accent-teal));
+    color: #06150d;
+    font-weight: 800;
+    font-size: 19px;
+    cursor: pointer;
+  }
+
+  .divider {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 26px 0;
+    color: var(--text-muted);
+    font-size: 13px;
+  }
+
+  .divider::before, .divider::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: var(--border-soft);
+  }
+
+  .help-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background: rgba(74, 222, 128, 0.08);
+    border: 1px solid var(--border-soft);
+    border-radius: 12px;
+    padding: 14px;
+    font-size: 15px;
+    color: var(--text-light);
+    text-align: center;
+    cursor: pointer;
+  }
+
+  .signup-text {
+    text-align: center;
+    margin-top: 22px;
+    font-size: 15px;
+    color: var(--text-muted);
+  }
+
+  .signup-text a {
+    color: var(--accent-green);
+    text-decoration: none;
+    font-weight: 700;
+  }
+
+  .lang-row {
+    text-align: center;
+    margin-top: 18px;
+    font-size: 13px;
+    color: var(--text-muted);
+  }
+
+  .lang-row select {
+    background: #0a1712;
+    color: var(--text-light);
+    border: 1px solid var(--border-soft);
+    border-radius: 8px;
+    padding: 6px 10px;
+    font-size: 13px;
+    margin-left: 6px;
+  }
+</style>
+</head>
+<body>
+
+  <div class="login-card">
+    <div class="logo-row">
+      <div class="leaf-icon">🌱</div>
+      <div class="brand">PlantCare AI</div>
+    </div>
+    <p class="welcome">Welcome back, Farmer!</p>
+    <p class="subtitle">Log in to check your crops and get plant health advice</p>
+
+    <div class="method-toggle">
+      <button type="button" class="active">📱 Phone Number</button>
+      <button type="button">✉️ Email</button>
+    </div>
+
+    <form onsubmit="event.preventDefault(); window.location.href='https://plant-ai-vision-60.lovable.app';">
+      <label for="phone">Your Phone Number</label>
+      <input type="tel" id="phone" placeholder="e.g. 98765 43210" inputmode="numeric">
+      <p class="hint">We'll send you a code to log in — no password needed</p>
+
+      <button type="submit" class="login-btn">Get Login Code</button>
+    </form>
+
+    <div class="divider">OR</div>
+
+    <div class="help-row" onclick="window.location.href='https://plant-ai-vision-60.lovable.app';">
+      🎙️ Need help? Tap to log in by voice
+    </div>
+
+    <p class="signup-text">New here? <a href="https://plant-ai-vision-60.lovable.app">Create a free account</a></p>
+
+    <p class="lang-row">
+      Choose your language:
+      <select>
+        <option>English</option>
+        <option>తెలుగు (Telugu)</option>
+        <option>हिंदी (Hindi)</option>
+      </select>
+    </p>
+  </div>
+
+</body>
+</html>
